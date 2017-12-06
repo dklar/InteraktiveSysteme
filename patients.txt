@@ -1,3 +1,5 @@
 :Mueller//Heinz//m//AOK//Mommsenstr.//Dresden//01069//Saxony//1.78//75//2006-01-03//broken leg, headache://
 :Schmidt//Heike//f//IKK//Zellescher Weg//Dresden//01068//Saxony//1.66//72//2009-02-22//depression://
 :Neumann//Klaus//m//AOKplus//Heine-Str.//Leipzig//04771//Saxony//1.89//99//2000-07-01//arthrosis, headache://
+:Zeppelin//Anton//m//BKK Siemens//Neue Str.//Berlin//01101//Berlin//1.77//88//2010-11-01//sleeplessness, flu://
+:Wolfgang//Berta//f//AOK//Neumarkt//Dresden//01066//Saxony//1.58//60//2009-10-01//asthma://

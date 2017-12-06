@@ -3,7 +3,6 @@ package classes;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-//import java.util.LinkedList;
 
 public class Patient {
 	private String firstName;
@@ -17,7 +16,6 @@ public class Patient {
 	private Float initialHeight;
 	private Float initialWeight;
 	private Date admDate;
-//	private LinkedList<String> afflictions;
 	private String afflictions;
 	private HashMap<Date, PatientsData> data;
 	
@@ -45,22 +43,15 @@ public class Patient {
 		this.initialHeight = initialHeight;
 		this.initialWeight = initialWeight;
 		this.admDate = admDate;
-//		this.afflictions = new LinkedList<>();
-//		this.addAfflictionsFromString(afflictions);
 		this.afflictions = afflictions;
 		this.data = new HashMap<>();
 	}
-	
-//	public void addAfflictionsFromString(String afflictions) {
-//		
-//	}
 	
 	public void addRecord(Date date, Integer presL, Integer presH, Integer pulse, Integer weight) {
 		this.data.put(date, new PatientsData(date, presL, presH, pulse, weight));
 	}
 	
 	public static Patient parseStringNewPatients(String string) {
-		int i = 0;
 		int k = 0;
 		String[] tokens = string.split("[//]");
 		String firstName = "", lastName = "", healthInsurance = "", street = "", city = "",

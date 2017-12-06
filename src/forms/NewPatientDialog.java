@@ -1,21 +1,15 @@
 package forms;
 
-import java.text.DateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 
 import org.eclipse.jface.dialogs.Dialog;
-import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MessageBox;
 //import swing2swt.layout.BoxLayout;
 import org.eclipse.swt.widgets.Text;
@@ -25,8 +19,6 @@ import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.DateTime;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Spinner;
 
 import classes.EnumGender;

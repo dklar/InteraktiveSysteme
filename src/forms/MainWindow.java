@@ -1,7 +1,6 @@
 package forms;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -22,6 +21,7 @@ import classes.*;
 public class MainWindow {
 
 	protected Shell shell;
+	//Map containing all saved Patient objects with (Patient.lastName+Patient.firstName) as key
 	private HashMap<String, Patient> medicalData;
 
 	/**
@@ -104,8 +104,8 @@ public class MainWindow {
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
 		
-		Button btnNewButton = new Button(shell, SWT.NONE);
-		btnNewButton.addSelectionListener(new SelectionAdapter() {
+		Button btnNewPatient = new Button(shell, SWT.NONE);
+		btnNewPatient.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				NewPatientDialog dialog =
@@ -113,7 +113,7 @@ public class MainWindow {
 				dialog.open();
 			}
 		});
-		btnNewButton.setText("New Patient");
+		btnNewPatient.setText("New Patient");
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
@@ -128,8 +128,15 @@ public class MainWindow {
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
 		
-		Button btnNewButton_2 = new Button(shell, SWT.NONE);
-		btnNewButton_2.setText("Open dossier");
+		Button btnOpenDossier = new Button(shell, SWT.NONE);
+		btnOpenDossier.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				DossierDialog dossierDialog = new DossierDialog(shell, medicalData);
+				dossierDialog.open();
+			}
+		});
+		btnOpenDossier.setText("Open dossier");
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
@@ -144,8 +151,14 @@ public class MainWindow {
 		new Label(shell, SWT.NONE);
 		new Label(shell, SWT.NONE);
 		
-		Button btnNewButton_1 = new Button(shell, SWT.NONE);
-		btnNewButton_1.setText("Close");
-
+		Button btnClose = new Button(shell, SWT.NONE);
+		btnClose.setText("Close");
+		btnClose.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				shell.getDisplay().dispose();
+				System.exit(0);
+			}
+		});
 	}
 }
