@@ -6,6 +6,7 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.util.HashMap;
 
+import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -133,7 +134,14 @@ public class MainWindow {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				DossierDialog dossierDialog = new DossierDialog(shell, medicalData);
-				dossierDialog.open();
+				if (dossierDialog.open() == Dialog.OK) {
+					System.out.println("OKAY");
+					ShowData dataWindow;
+					//ShowData.setPatient(medicalData.get(dossierDialog.getSelectedPatient()));
+					dataWindow = new ShowData();
+					dataWindow.setPatient(medicalData.get(dossierDialog.getSelectedPatient()));
+					dataWindow.open(medicalData.get(dossierDialog.getSelectedPatient()));
+				}
 			}
 		});
 		btnOpenDossier.setText("Open dossier");
