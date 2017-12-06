@@ -1,20 +1,28 @@
 package forms;
 
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Text;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.util.HashMap;
+
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.DateTime;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
+
+import classes.*;
+
 
 public class MainWindow {
 
 	protected Shell shell;
+	private HashMap<String, Patient> medicalData;
 
 	/**
 	 * Launch the application.
@@ -33,6 +41,22 @@ public class MainWindow {
 	 * Open the window.
 	 */
 	public void open() {
+		medicalData = new HashMap<>();
+		try {
+			//read file to automatically create some patients
+			BufferedReader reader = 
+				Files.newBufferedReader(FileSystems.getDefault().getPath("",
+				"patients.txt"), StandardCharsets.UTF_8);
+			String line = null;
+			Patient patient;
+		    while ((line = reader.readLine()) != null) {
+		    	System.out.println(line);
+		    	patient = Patient.parseStringNewPatients(line);
+		    	medicalData.put(patient.getLastName()+patient.getFirstName(), patient);
+		    }
+		} catch (Exception e) {
+				e.printStackTrace();
+		}
 		Display display = Display.getDefault();
 		createContents();
 		shell.open();
@@ -85,7 +109,7 @@ public class MainWindow {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				NewPatientDialog dialog =
-						new NewPatientDialog(shell);				
+						new NewPatientDialog(shell, medicalData);				
 				dialog.open();
 			}
 		});
