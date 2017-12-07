@@ -61,7 +61,6 @@ public class Patient {
 		Date admDate = new Date();
 		SimpleDateFormat dateParser = new SimpleDateFormat("yyyy-MM-dd");
 		for(String token : tokens){
-			System.out.println(token);
 			if(token.isEmpty()) {
 				;	//nop
 			} else {
