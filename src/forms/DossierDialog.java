@@ -20,9 +20,10 @@ import org.eclipse.swt.widgets.TableItem;
 
 import classes.Patient;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Listener;
-import org.eclipse.wb.swt.SWTResourceManager;
-import org.eclipse.swt.custom.ViewForm;
+//import org.eclipse.swt.widgets.Listener;
+//import org.eclipse.wb.swt.SWTResourceManager;
+//import org.eclipse.swt.custom.ViewForm;
+import org.eclipse.swt.graphics.Font;
 
 
 
@@ -67,7 +68,8 @@ public class DossierDialog extends Dialog {
 		composite_1 = new Composite(container, SWT.NONE);
 		
 		lblPleaseSelectA = new Label(composite_1, SWT.NONE);
-		lblPleaseSelectA.setFont(SWTResourceManager.getFont("Segoe UI", 13, SWT.NORMAL));
+		lblPleaseSelectA.setFont(new Font(parent.getDisplay(), "Segoe UI", 13, SWT.NORMAL));
+//		lblPleaseSelectA.setFont(SWTResourceManager.getFont("Segoe UI", 13, SWT.NORMAL));
 		lblPleaseSelectA.setBounds(10, 10, 424, 29);
 		lblPleaseSelectA.setText("Please select a patient to open acta");
 		

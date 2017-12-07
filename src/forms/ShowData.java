@@ -11,10 +11,10 @@ import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
 import org.eclipse.swt.layout.GridLayout;
 import org.swtchart.Chart;
-import org.swtchart.ILineSeries;
-import org.swtchart.ISeries.SeriesType;
-
-import classes.EnumGender;
+//import org.swtchart.ILineSeries;
+//import org.swtchart.ISeries.SeriesType;
+//
+//import classes.EnumGender;
 import classes.Patient;
 import org.eclipse.swt.layout.GridData;
 
